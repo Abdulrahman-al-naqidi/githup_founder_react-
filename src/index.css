@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/* Dark mode is driven by a "dark" class on <html> (toggled from React) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-100 leading-relaxed text-slate-900 transition-colors dark:bg-slate-900 dark:text-slate-100;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
